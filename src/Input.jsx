@@ -27,10 +27,14 @@ export default function Input({childToParentAge}) {
 
       const changeAge =(event)=>{
        
-      const setAgeNew = event.target.value
-
-      //  console.log(setAgeNew.length)
-      // if (typeof setAgeNew === "number"){}
+      let setAgeNew = event.target.value
+        
+       // no negative numbers allowed
+      if (setAgeNew < 0){
+        setAgeNew = 0;
+        setAge(0)
+        childToParentAge(setAgeNew) 
+      }
       if (setAgeNew.length < 3){
         setAge(setAgeNew)
         childToParentAge(setAgeNew) // send age number immediately to main.jsx
@@ -79,9 +83,11 @@ export default function Input({childToParentAge}) {
           <div className="meindiv5"><h4>{text}</h4></div>
 
       */}
+
           <div className="meindiv2" id="id2"  style={showDiv}  >  
                 <input type="number" 
                 defaultValue={age} 
+                value={age}
                 name="age"
                 className="input"
                 onChange={changeAge} />  
