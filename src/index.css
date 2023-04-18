@@ -12,6 +12,10 @@ body{
   position: fixed;
 }
 
+GltfModel {
+  cursor: pointer;
+}
+
 .task {
   font-size: 0.8rem;
   width: 100%;
